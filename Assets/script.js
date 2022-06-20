@@ -69,6 +69,11 @@ const btnClick = generateBtn.addEventListener("click", function(e) {
     validCharacters += specialCharacters
   }
 
+  // Alert if no checkboxes are selected
+  if(numberID.checked === false && upperID.checked === false && lowerID.checked === false && specialID.checked === false) {
+    alert(`None of the checkboxes are selected.`)
+  }
+
 
   for (let i = 0; i <= passwordLength; i++) {
     let randomNumber = Math.floor(Math.random() * validCharacters.length - 1)
