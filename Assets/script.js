@@ -2,6 +2,7 @@
 // HTML elements
 const generateBtn = document.querySelector("#generate");
 const characterID = document.getElementById('characters')
+const passwordText = document.querySelector("#password");
 const numberID = document.getElementById('numbers')
 const upperID = document.getElementById('uppercase')
 const lowerID = document.getElementById('lowercase')
@@ -28,7 +29,6 @@ const passwordLengthPrompt = function () {
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
-  var passwordText = document.querySelector("#password");
 
   
 
@@ -48,7 +48,7 @@ const btnClick = generateBtn.addEventListener("click", function(e) {
   if (characterTotal >= 7  && characterTotal <= 128) {
     passwordLength = characterTotal
   } else {
-    // alert ('Invalid range')
+    alert ('Invalid range')
   }
   validCharacters = ''
 
@@ -69,13 +69,12 @@ const btnClick = generateBtn.addEventListener("click", function(e) {
     validCharacters += specialCharacters
   }
 
-  console.log(validCharacters)
 
-
-  // for (let i = 0; i <= passwordLength; i++) {
-  //   let randomNumber = Math.floor(Math.random() * validCharacters.length - 1)
-  //   password += validCharacters.substring(randomNumber,randomNumber + 1)
-  // }
-  // console.log(password)
+  for (let i = 0; i <= passwordLength; i++) {
+    let randomNumber = Math.floor(Math.random() * validCharacters.length - 1)
+    password += validCharacters.substring(randomNumber,randomNumber + 1)
+  }
+  
+  passwordText.value = password
 });
 
