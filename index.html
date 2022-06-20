@@ -25,13 +25,21 @@
           ></textarea>
         </div>
 
+        <div class="card-footer">
+          <button id="generate" class="btn">Generate Password</button>
+        </div>
         <div class="form-container">
           <h3>Testing</h3>
           <form>
-            <label for="characters">Characters between 8-128</label>
-            <input type="number" name="characters" id="characters" />
-            <label for="numbers">Numbers</label>
-            <input type="checkbox" name="numbers" id="numbers" />
+            <div>
+              <label for="characters">Characters between 8-128</label>
+              <input type="number" name="characters" id="characters" />
+            </div>
+            <div>
+              <label for="numbers">Numbers</label>
+              <input type="checkbox" name="numbers" id="numbers" />
+            </div>
+
             <label for="uppercase">Uppercase</label>
             <input type="checkbox" name="uppercase" id="uppercase" />
             <label for="lowercase">Lowercase</label>
@@ -43,9 +51,6 @@
               id="special-characters"
             />
           </form>
-        </div>
-        <div class="card-footer">
-          <button id="generate" class="btn">Generate Password</button>
         </div>
       </div>
     </div>

@@ -48,22 +48,24 @@ const btnClick = generateBtn.addEventListener("click", function(e) {
   if (characterTotal >= 7  && characterTotal <= 128) {
     passwordLength = characterTotal
   } else {
-    alert ('Invalid range')
+    // alert ('Invalid range')
   }
+  validCharacters = ''
+
   // Check to see if numbers are accepted
-  if (numberID.checked = true) {
+  if (numberID.checked) {
     validCharacters += numberCharacters
   }
   // Check to see if uppercase is accepted
-  if (upperID.checked = true) {
+  if (upperID.checked) {
     validCharacters += upperCharacters
   }
   // Check to see if lowercase is accepted
-  if (lowerID.checked = true) {
+  if (lowerID.checked) {
     validCharacters += lowerCharacters
   }
   // Check to see if special characters are accepted
-  if (specialID.checked = true) {
+  if (specialID.checked) {
     validCharacters += specialCharacters
   }
 
