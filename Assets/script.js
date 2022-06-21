@@ -10,7 +10,7 @@ const specialID = document.getElementById('special-characters')
 
 // Variables
 let validCharacters
-let password = ''
+let password
 
 
 // character types
@@ -19,32 +19,16 @@ const upperCharacters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 const lowerCharacters = 'abcdefghijklmnopqrstuvwxyz'
 const specialCharacters = '!@#$%^&*()-_=+<>'
 
-const passwordLengthPrompt = function () {
-  let output = prompt('Enter desired password length, between 1-128 characters.')
-  outputNum = parseInt(output)
-  return outputNum
-}
+// All logic for generating password
 
+function createPassword() {
+  let password = ''
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-
-  
-
-  passwordText.value = password;
-
-}
-
-
-
-
-// Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword);
-
-const btnClick = generateBtn.addEventListener("click", function(e) {
+  // Additional variables
   let characterTotal = parseInt(characterID.value)
   let passwordLength
+
+  // Function determining password length
   if (characterTotal >= 7  && characterTotal <= 128) {
     passwordLength = characterTotal
   } else {
@@ -74,12 +58,22 @@ const btnClick = generateBtn.addEventListener("click", function(e) {
     alert(`None of the checkboxes are selected.`)
   }
 
-
+// For loop to generate password
   for (let i = 0; i <= passwordLength; i++) {
     let randomNumber = Math.floor(Math.random() * validCharacters.length - 1)
     password += validCharacters.substring(randomNumber,randomNumber + 1)
   }
   
   passwordText.value = password
+}
+
+// Run event for generating password on click or "Enter" events
+const btnClick = generateBtn.addEventListener('click', function () {
+  createPassword()
 });
 
+const enterBtn = document.addEventListener('keypress', function(e) {
+  if (e.key === "Enter") {
+    createPassword()
+  }
+})
